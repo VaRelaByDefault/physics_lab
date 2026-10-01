@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Physics Lab</title>
+  <script>
+    (function () {
+      document.documentElement.dataset.theme =
+        localStorage.getItem("physics_lab.theme") || "light";
+      document.documentElement.dataset.grid =
+        localStorage.getItem("physics_lab.grid") || "on";
+    })();
+  </script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body>
+  <header id="tabs-bar">
+    <div id="tabs"></div>
+    <div class="tabs-actions">
+      <button id="btn-new-project"  title="Новый проект">＋</button>
+      <button id="btn-open-project" title="Открыть проект">📂</button>
+      <button id="btn-save-project" title="Сохранить">💾</button>
+      <button id="btn-undo"         title="Отменить (Ctrl+Z)">↶</button>
+      <button id="btn-redo"         title="Повторить (Ctrl+Y)">↷</button>
+      <button id="btn-theme"        title="Тема">◐</button>
+      <button id="btn-grid"         title="Сетка">#</button>
+    </div>
+  </header>
+
+  <main id="layout">
+    <aside id="left-panel">
+      <h2>Компоненты</h2>
+      <input id="palette-left-search" class="palette-search" placeholder="Поиск…">
+      <div id="palette-left" class="palette"></div>
+
+      <h2>Приборы</h2>
+      <input id="palette-right-search" class="palette-search" placeholder="Поиск…">
+      <div id="palette-right" class="palette"></div>
+    </aside>
+
+    <section id="workspace-host">
+      <svg id="workspace" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid-10" width="10" height="10" patternUnits="userSpaceOnUse">
+            <path d="M 10 0 L 0 0 0 10" fill="none"
+                  stroke="var(--grid-line)" stroke-width="0.5"/>
+          </pattern>
+          <pattern id="grid-100" width="100" height="100" patternUnits="userSpaceOnUse">
+            <rect width="100" height="100" fill="url(#grid-10)"/>
+            <path d="M 100 0 L 0 0 0 100" fill="none"
+                  stroke="var(--grid-line-major)" stroke-width="1"/>
+          </pattern>
+          <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+                  markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#333"/>
+          </marker>
+        </defs>
+        <g id="viewport">
+          <rect id="grid-bg" x="-20000" y="-20000" width="40000" height="40000"
+                fill="url(#grid-100)" pointer-events="none"/>
+          <g id="connections-layer"></g>
+          <g id="components-layer"></g>
+          <g id="overlay-layer"></g>
+        </g>
+      </svg>
+      <div id="status-bar"></div>
+      <div id="minimap">
+        <svg id="minimap-svg" viewBox="0 0 200 120"></svg>
+      </div>
+    </section>
+
+    <aside id="right-panel">
+      <h2>Инспектор</h2>
+      <div id="inspector"></div>
+
+      <button id="btn-simulate" class="primary">Рассчитать</button>
+      <div id="readings"></div>
+    </aside>
+  </main>
+
+  <div id="context-menu" hidden></div>
+
+  <script type="module" src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

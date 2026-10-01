@@ -1,0 +1,462 @@
+{
+  "schema_version": 1,
+  "id": "prj_hg0yfkgo",
+  "name": "Тестовый проект",
+  "created": "2026-09-30T18:24:37.731Z",
+  "modified": "2026-09-30T20:44:57.401737+00:00",
+  "viewport": {
+    "x": -424.8125617579891,
+    "y": 182.89902656281743,
+    "zoom": 2.1435888100000016
+  },
+  "components": [
+    {
+      "id": "c_ap1a5gw4",
+      "type": "dc_voltage_source",
+      "position": {
+        "x": 370,
+        "y": 220
+      },
+      "rotation": 0,
+      "properties": {
+        "voltage": 12
+      },
+      "state": {
+        "on": true,
+        "polarity_swapped": false
+      },
+      "style": {}
+    },
+    {
+      "id": "c_y2m60319",
+      "type": "toggle_switch",
+      "position": {
+        "x": 460,
+        "y": 180
+      },
+      "rotation": 0,
+      "properties": {},
+      "state": {
+        "closed": true
+      },
+      "style": {}
+    },
+    {
+      "id": "c_rg911pia",
+      "type": "voltmeter",
+      "position": {
+        "x": 630,
+        "y": 240
+      },
+      "rotation": 270,
+      "properties": {
+        "range": 20
+      },
+      "state": {},
+      "style": {}
+    },
+    {
+      "id": "c_lgms8jk3",
+      "type": "potentiometer",
+      "position": {
+        "x": 620,
+        "y": 150
+      },
+      "rotation": 0,
+      "properties": {
+        "resistance": 1000
+      },
+      "state": {
+        "wiper": 0.5006411610973913
+      },
+      "style": {}
+    },
+    {
+      "id": "c_ih7yrp4u",
+      "type": "ammeter",
+      "position": {
+        "x": 780,
+        "y": 240
+      },
+      "rotation": 0,
+      "properties": {
+        "range": 5
+      },
+      "state": {},
+      "style": {}
+    },
+    {
+      "id": "c_o25c9n7g",
+      "type": "ohmmeter",
+      "position": {
+        "x": 630,
+        "y": 70
+      },
+      "rotation": 270,
+      "properties": {
+        "range": 10000
+      },
+      "state": {},
+      "style": {}
+    },
+    {
+      "id": "c_rn55bt7l",
+      "type": "variable_resistor",
+      "position": {
+        "x": 620,
+        "y": 10
+      },
+      "rotation": 0,
+      "properties": {
+        "resistance": 100
+      },
+      "state": {
+        "current_resistance": 100
+      },
+      "style": {}
+    },
+    {
+      "id": "c_7vd8rw5s",
+      "type": "ohmmeter",
+      "position": {
+        "x": 1000,
+        "y": 80
+      },
+      "rotation": 90,
+      "properties": {
+        "range": 10000
+      },
+      "state": {
+        "polarity_swapped": false
+      },
+      "style": {}
+    },
+    {
+      "id": "c_7x9hlobm",
+      "type": "variable_resistor",
+      "position": {
+        "x": 990,
+        "y": 20
+      },
+      "rotation": 0,
+      "properties": {
+        "resistance": 100
+      },
+      "state": {
+        "current_resistance": 100
+      },
+      "style": {}
+    },
+    {
+      "id": "c_brywlshj",
+      "type": "potentiometer",
+      "position": {
+        "x": 990,
+        "y": 190
+      },
+      "rotation": 0,
+      "properties": {
+        "resistance": 100
+      },
+      "state": {
+        "wiper": 0.3349763177833601
+      },
+      "style": {}
+    },
+    {
+      "id": "c_ha9ffm09",
+      "type": "wattmeter",
+      "position": {
+        "x": 390,
+        "y": 40
+      },
+      "rotation": 0,
+      "properties": {
+        "range": 1000
+      },
+      "state": {},
+      "style": {}
+    }
+  ],
+  "connections": [
+    {
+      "id": "w_om0c5kb1",
+      "ends": [
+        {
+          "kind": "terminal",
+          "component_id": "c_ap1a5gw4",
+          "terminal_id": "plus"
+        },
+        {
+          "kind": "terminal",
+          "component_id": "c_y2m60319",
+          "terminal_id": "1"
+        }
+      ],
+      "waypoints": [
+        [
+          400,
+          200
+        ],
+        [
+          480,
+          200
+        ],
+        [
+          480,
+          200
+        ]
+      ],
+      "color": "#222"
+    },
+    {
+      "id": "w_7uvuglch",
+      "ends": [
+        {
+          "kind": "terminal",
+          "component_id": "c_y2m60319",
+          "terminal_id": "2"
+        },
+        {
+          "kind": "terminal",
+          "component_id": "c_lgms8jk3",
+          "terminal_id": "b"
+        }
+      ],
+      "waypoints": [],
+      "color": "#222"
+    },
+    {
+      "id": "w_ehyui8js",
+      "ends": [
+        {
+          "kind": "terminal",
+          "component_id": "c_lgms8jk3",
+          "terminal_id": "w"
+        },
+        {
+          "kind": "terminal",
+          "component_id": "c_ih7yrp4u",
+          "terminal_id": "plus"
+        }
+      ],
+      "waypoints": [],
+      "color": "#222"
+    },
+    {
+      "id": "w_2cu0mmpk",
+      "ends": [
+        {
+          "kind": "terminal",
+          "component_id": "c_rg911pia",
+          "terminal_id": "plus"
+        },
+        {
+          "kind": "connection",
+          "connection_id": "w_7uvuglch",
+          "anchor": 0.5
+        }
+      ],
+      "waypoints": [],
+      "color": "#222"
+    },
+    {
+      "id": "w_rjng1vwj",
+      "ends": [
+        {
+          "kind": "terminal",
+          "component_id": "c_rg911pia",
+          "terminal_id": "minus"
+        },
+        {
+          "kind": "connection",
+          "connection_id": "w_ehyui8js",
+          "anchor": 0.29411764705882354
+        }
+      ],
+      "waypoints": [
+        [
+          750,
+          270
+        ]
+      ],
+      "color": "#222"
+    },
+    {
+      "id": "w_3hfto7b6",
+      "ends": [
+        {
+          "kind": "terminal",
+          "component_id": "c_ap1a5gw4",
+          "terminal_id": "minus"
+        },
+        {
+          "kind": "terminal",
+          "component_id": "c_ih7yrp4u",
+          "terminal_id": "minus"
+        }
+      ],
+      "waypoints": [
+        [
+          400,
+          320
+        ]
+      ],
+      "color": "#222"
+    },
+    {
+      "id": "w_h6s2hbmz",
+      "ends": [
+        {
+          "kind": "terminal",
+          "component_id": "c_o25c9n7g",
+          "terminal_id": "plus"
+        },
+        {
+          "kind": "connection",
+          "connection_id": "w_7uvuglch",
+          "anchor": 0.5
+        }
+      ],
+      "waypoints": [],
+      "color": "#222"
+    },
+    {
+      "id": "w_9hiria8a",
+      "ends": [
+        {
+          "kind": "terminal",
+          "component_id": "c_o25c9n7g",
+          "terminal_id": "minus"
+        },
+        {
+          "kind": "connection",
+          "connection_id": "w_ehyui8js",
+          "anchor": 0.29411764705882354
+        }
+      ],
+      "waypoints": [],
+      "color": "#222"
+    },
+    {
+      "id": "w_27i4oj0h",
+      "ends": [
+        {
+          "kind": "terminal",
+          "component_id": "c_rn55bt7l",
+          "terminal_id": "2"
+        },
+        {
+          "kind": "connection",
+          "connection_id": "w_9hiria8a",
+          "anchor": 0.42857142857142855
+        }
+      ],
+      "waypoints": [],
+      "color": "#222"
+    },
+    {
+      "id": "w_dl6clm5y",
+      "ends": [
+        {
+          "kind": "terminal",
+          "component_id": "c_rn55bt7l",
+          "terminal_id": "1"
+        },
+        {
+          "kind": "connection",
+          "connection_id": "w_h6s2hbmz",
+          "anchor": 0.375
+        }
+      ],
+      "waypoints": [],
+      "color": "#222"
+    },
+    {
+      "id": "w_ha39ulqq",
+      "ends": [
+        {
+          "kind": "terminal",
+          "component_id": "c_7x9hlobm",
+          "terminal_id": "1"
+        },
+        {
+          "kind": "terminal",
+          "component_id": "c_7vd8rw5s",
+          "terminal_id": "minus"
+        }
+      ],
+      "waypoints": [
+        [
+          960,
+          40
+        ],
+        [
+          960,
+          110
+        ]
+      ],
+      "color": "#222"
+    },
+    {
+      "id": "w_bd2e53jk",
+      "ends": [
+        {
+          "kind": "terminal",
+          "component_id": "c_brywlshj",
+          "terminal_id": "a"
+        },
+        {
+          "kind": "connection",
+          "connection_id": "w_ha39ulqq",
+          "anchor": 0.7142857142857143
+        }
+      ],
+      "waypoints": [],
+      "color": "#222"
+    },
+    {
+      "id": "w_19kbu6c2",
+      "ends": [
+        {
+          "kind": "terminal",
+          "component_id": "c_brywlshj",
+          "terminal_id": "w"
+        },
+        {
+          "kind": "terminal",
+          "component_id": "c_7x9hlobm",
+          "terminal_id": "2"
+        }
+      ],
+      "waypoints": [
+        [
+          1090,
+          220
+        ],
+        [
+          1090,
+          40
+        ]
+      ],
+      "color": "#222"
+    },
+    {
+      "id": "w_1bfeof33",
+      "ends": [
+        {
+          "kind": "terminal",
+          "component_id": "c_7vd8rw5s",
+          "terminal_id": "plus"
+        },
+        {
+          "kind": "connection",
+          "connection_id": "w_19kbu6c2",
+          "anchor": 0.5909090909090909
+        }
+      ],
+      "waypoints": [],
+      "color": "#222"
+    }
+  ]
+}

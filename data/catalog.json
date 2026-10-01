@@ -1,0 +1,268 @@
+{
+  "version": 1,
+  "items": {
+    "dc_voltage_source": {
+      "label": "Источник DC",
+      "category": "sources", "panel": "left", "simulatable": true,
+      "kind": "source_v",
+      "class": "backend.components.sources.DCVoltageSource",
+      "icon": "dcv.svg", "size": [60, 80],
+      "polarity_pairs": [["plus", "minus"]],
+      "terminals": [
+        {"id": "plus",  "label": "+", "direction": "out", "x": 30, "y": 0,  "inner_label": "+"},
+        {"id": "minus", "label": "−", "direction": "out", "x": 30, "y": 80, "inner_label": "−"}
+      ],
+      "properties": [
+        {"id": "voltage", "label": "Напряжение", "type": "float",
+         "unit": "В", "default": 12, "min": 0}
+      ],
+      "state": [
+        {"id": "on", "label": "Включён", "type": "bool", "default": true}
+      ]
+    },
+    "dc_current_source": {
+      "label": "Источник тока DC",
+      "category": "sources", "panel": "left", "simulatable": true,
+      "kind": "source_i",
+      "class": "backend.components.sources.DCCurrentSource",
+      "icon": "dci.svg", "size": [60, 80],
+      "polarity_pairs": [["plus", "minus"]],
+      "terminals": [
+        {"id": "plus",  "label": "+", "direction": "out", "x": 30, "y": 0,  "inner_label": "+"},
+        {"id": "minus", "label": "−", "direction": "out", "x": 30, "y": 80, "inner_label": "−"}
+      ],
+      "properties": [
+        {"id": "current", "label": "Ток", "type": "float",
+         "unit": "А", "default": 1, "min": 0}
+      ],
+      "state": [{"id": "on", "label": "Включён", "type": "bool", "default": true}]
+    },
+    "ac_voltage_source": {
+      "label": "Источник AC",
+      "category": "sources", "panel": "left", "simulatable": false,
+      "kind": "source_v",
+      "class": "backend.components.sources.ACVoltageSource",
+      "icon": "acv.svg", "size": [60, 80],
+      "terminals": [
+        {"id": "L", "label": "L", "direction": "out", "x": 30, "y": 0,  "inner_label": "L"},
+        {"id": "N", "label": "N", "direction": "out", "x": 30, "y": 80, "inner_label": "N"}
+      ],
+      "properties": [
+        {"id": "amplitude", "label": "Амплитуда", "type": "float",
+         "unit": "В", "default": 311},
+        {"id": "frequency", "label": "Частота", "type": "float",
+         "unit": "Гц", "default": 50}
+      ],
+      "state": [{"id": "on", "label": "Включён", "type": "bool", "default": true}]
+    },
+    "resistor": {
+      "label": "Резистор",
+      "category": "passive", "panel": "left", "simulatable": true,
+      "kind": "passive",
+      "class": "backend.components.passive.Resistor",
+      "icon": "res.svg", "size": [80, 40],
+      "terminals": [
+        {"id": "1", "label": "1", "direction": "inout", "x": 0,  "y": 20},
+        {"id": "2", "label": "2", "direction": "inout", "x": 80, "y": 20}
+      ],
+      "properties": [
+        {"id": "resistance", "label": "Сопротивление", "type": "float",
+         "unit": "Ом", "default": 100, "min": 0.001}
+      ],
+      "state": []
+    },
+    "variable_resistor": {
+      "label": "Реостат",
+      "category": "passive", "panel": "left", "simulatable": true,
+      "kind": "passive",
+      "class": "backend.components.passive.VariableResistor",
+      "icon": "vres.svg", "size": [80, 40],
+      "terminals": [
+        {"id": "1", "label": "1", "direction": "inout", "x": 0,  "y": 20},
+        {"id": "2", "label": "2", "direction": "inout", "x": 80, "y": 20}
+      ],
+      "properties": [
+        {"id": "resistance", "label": "Номинал", "type": "float",
+         "unit": "Ом", "default": 100, "min": 0.001}
+      ],
+      "state": [
+        {"id": "current_resistance", "label": "Текущее", "type": "float",
+         "unit": "Ом", "default": 100, "min": 0}
+      ]
+    },
+    "potentiometer": {
+      "label": "Потенциометр",
+      "category": "passive", "panel": "left", "simulatable": true,
+      "kind": "passive",
+      "class": "backend.components.passive.Potentiometer",
+      "icon": "pot.svg", "size": [80, 60],
+      "terminals": [
+        {"id": "a", "label": "A", "direction": "inout", "x": 0,  "y": 10, "inner_label": "A"},
+        {"id": "w", "label": "W", "direction": "inout", "x": 80, "y": 30, "inner_label": "W"},
+        {"id": "b", "label": "B", "direction": "inout", "x": 0,  "y": 50, "inner_label": "B"}
+      ],
+      "properties": [
+        {"id": "resistance", "label": "Сопротивление", "type": "float",
+         "unit": "Ом", "default": 1000, "min": 0.001}
+      ],
+      "state": [
+        {"id": "wiper", "label": "Положение", "type": "float",
+         "default": 0.5, "min": 0, "max": 1}
+      ]
+    },
+    "lamp": {
+      "label": "Лампа",
+      "category": "passive", "panel": "left", "simulatable": true,
+      "kind": "passive",
+      "class": "backend.components.passive.Lamp",
+      "icon": "lamp.svg", "size": [60, 60],
+      "terminals": [
+        {"id": "1", "label": "1", "direction": "inout", "x": 30, "y": 0},
+        {"id": "2", "label": "2", "direction": "inout", "x": 30, "y": 60}
+      ],
+      "properties": [
+        {"id": "power", "label": "Мощность", "type": "float", "unit": "Вт", "default": 1},
+        {"id": "voltage_nominal", "label": "Номинал", "type": "float", "unit": "В", "default": 12},
+        {"id": "color", "label": "Цвет свечения", "type": "select",
+         "default": "красный",
+         "options": [
+           {"value": "красный",    "color": "#ff4136", "edge": "#b71c1c"},
+           {"value": "оранжевый",  "color": "#ffb347", "edge": "#d97706"},
+           {"value": "жёлтый",     "color": "#ffe066", "edge": "#b58900"},
+           {"value": "зелёный",    "color": "#6fdc6f", "edge": "#2e7d32"},
+           {"value": "голубой",    "color": "#6fd6f0", "edge": "#0288d1"},
+           {"value": "синий",      "color": "#6f8cff", "edge": "#303f9f"},
+           {"value": "фиолетовый", "color": "#b47bff", "edge": "#6a1b9a"}
+         ]
+        }
+      ],
+      "state": []
+    },
+    "heater": {
+      "label": "Нагреватель",
+      "category": "passive", "panel": "left", "simulatable": true,
+      "kind": "passive",
+      "class": "backend.components.passive.Heater",
+      "icon": "heat.svg", "size": [60, 60],
+      "terminals": [
+        {"id": "1", "label": "1", "direction": "inout", "x": 30, "y": 0},
+        {"id": "2", "label": "2", "direction": "inout", "x": 30, "y": 60}
+      ],
+      "properties": [
+        {"id": "power", "label": "Мощность", "type": "float", "unit": "Вт", "default": 100},
+        {"id": "voltage_nominal", "label": "Номинал", "type": "float", "unit": "В", "default": 220}
+      ],
+      "state": []
+    },
+    "toggle_switch": {
+      "label": "Тумблер",
+      "category": "switches", "panel": "left", "simulatable": true,
+      "kind": "switch",
+      "class": "backend.components.switches.ToggleSwitch",
+      "icon": "sw.svg", "size": [60, 40],
+      "terminals": [
+        {"id": "1", "label": "1", "direction": "inout", "x": 0,  "y": 20},
+        {"id": "2", "label": "2", "direction": "inout", "x": 60, "y": 20}
+      ],
+      "properties": [],
+      "state": [{"id": "closed", "label": "Замкнут", "type": "bool", "default": false}]
+    },
+    "push_button": {
+      "label": "Кнопка",
+      "category": "switches", "panel": "left", "simulatable": true,
+      "kind": "switch",
+      "class": "backend.components.switches.PushButton",
+      "icon": "btn.svg", "size": [60, 40],
+      "terminals": [
+        {"id": "1", "label": "1", "direction": "inout", "x": 0,  "y": 20},
+        {"id": "2", "label": "2", "direction": "inout", "x": 60, "y": 20}
+      ],
+      "properties": [],
+      "state": [{"id": "pressed", "label": "Нажата", "type": "bool", "default": false}]
+    },
+    "junction": {
+      "label": "Узел",
+      "category": "internal", "panel": "hidden", "simulatable": true,
+      "kind": "switch",
+      "class": "backend.components.switches.ToggleSwitch",
+      "icon": "junc.svg", "size": [10, 10],
+      "terminals": [
+        {"id": "n", "label": "", "direction": "inout", "x": 5, "y": 5},
+        {"id": "e", "label": "", "direction": "inout", "x": 5, "y": 5},
+        {"id": "s", "label": "", "direction": "inout", "x": 5, "y": 5},
+        {"id": "w", "label": "", "direction": "inout", "x": 5, "y": 5}
+      ],
+      "properties": [],
+      "state": []
+    },
+    "voltmeter": {
+      "label": "Вольтметр",
+      "category": "instruments", "panel": "right", "simulatable": true,
+      "kind": "instrument",
+      "class": "backend.components.instruments.Voltmeter",
+      "reading_unit": "В",
+      "icon": "vm.svg", "size": [60, 60],
+      "polarity_pairs": [["plus", "minus"]],
+      "terminals": [
+        {"id": "plus",  "label": "+", "direction": "in", "x": 30, "y": 0,  "inner_label": "+"},
+        {"id": "minus", "label": "−", "direction": "in", "x": 30, "y": 60, "inner_label": "−"}
+      ],
+      "properties": [
+        {"id": "range", "label": "Предел", "type": "float", "unit": "В", "default": 20}
+      ],
+      "state": []
+    },
+    "ammeter": {
+      "label": "Амперметр",
+      "category": "instruments", "panel": "right", "simulatable": true,
+      "kind": "instrument",
+      "class": "backend.components.instruments.Ammeter",
+      "reading_unit": "А",
+      "icon": "am.svg", "size": [60, 60],
+      "polarity_pairs": [["plus", "minus"]],
+      "terminals": [
+        {"id": "plus",  "label": "+", "direction": "in", "x": 30, "y": 0,  "inner_label": "+"},
+        {"id": "minus", "label": "−", "direction": "in", "x": 30, "y": 60, "inner_label": "−"}
+      ],
+      "properties": [
+        {"id": "range", "label": "Предел", "type": "float", "unit": "А", "default": 5}
+      ],
+      "state": []
+    },
+    "wattmeter": {
+      "label": "Ваттметр",
+      "category": "instruments", "panel": "right", "simulatable": true,
+      "kind": "instrument",
+      "class": "backend.components.instruments.Wattmeter",
+      "reading_unit": "Вт",
+      "icon": "wm.svg", "size": [80, 80],
+      "terminals": [
+        {"id": "i_plus",  "label": "I+", "direction": "in", "x": 0,  "y": 20, "inner_label": "I+"},
+        {"id": "i_minus", "label": "I−", "direction": "in", "x": 0,  "y": 60, "inner_label": "I−"},
+        {"id": "u_plus",  "label": "U+", "direction": "in", "x": 80, "y": 20, "inner_label": "U+"},
+        {"id": "u_minus", "label": "U−", "direction": "in", "x": 80, "y": 60, "inner_label": "U−"}
+      ],
+      "properties": [
+        {"id": "range", "label": "Предел", "type": "float", "unit": "Вт", "default": 1000}
+      ],
+      "state": []
+    },
+    "ohmmeter": {
+      "label": "Омметр",
+      "category": "instruments", "panel": "right", "simulatable": true,
+      "kind": "instrument",
+      "class": "backend.components.instruments.Ohmmeter",
+      "reading_unit": "Ом",
+      "icon": "om.svg", "size": [60, 60],
+      "polarity_pairs": [["plus", "minus"]],
+      "terminals": [
+        {"id": "plus",  "label": "+", "direction": "in", "x": 30, "y": 0,  "inner_label": "+"},
+        {"id": "minus", "label": "−", "direction": "in", "x": 30, "y": 60, "inner_label": "−"}
+      ],
+      "properties": [
+        {"id": "range", "label": "Предел", "type": "float", "unit": "Ом", "default": 10000}
+      ],
+      "state": []
+    }
+  }
+}

@@ -1,0 +1,17 @@
+from flask import Blueprint, render_template, Response
+
+bp = Blueprint("web", __name__)
+
+@bp.get("/")
+def index():
+    return render_template("index.html")
+
+@bp.get("/favicon.ico")
+def favicon():
+    # 1×1 прозрачный PNG
+    return Response(
+        b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01"
+        b"\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\nIDATx\x9cc\x00\x01"
+        b"\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82",
+        mimetype="image/png",
+    )

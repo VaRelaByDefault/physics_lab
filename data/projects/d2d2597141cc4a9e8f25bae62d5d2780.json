@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "id": "d2d2597141cc4a9e8f25bae62d5d2780",
+  "name": "Проект 1",
+  "created": "2026-10-01T04:58:14.619577+00:00",
+  "modified": "2026-10-01T04:58:14.619577+00:00",
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "components": [],
+  "connections": []
+}
